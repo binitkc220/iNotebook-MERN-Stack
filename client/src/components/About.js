@@ -7,7 +7,7 @@ export default function About() {
       <h4 className="text-dark text-justify m-4">iNotebook - A Cloud Notebook is a web based app developed and designed using MERN Stack i.e, MERN Stack comprises of 4 technologies namely: MongoDB, Express, React and Node.js. It is a full login based web app. One can signup and login to use iNotebook. Users can save, edit and delete their notes after logging into their account. Notes saved by a user are private and not accessible to other accounts. Users data are fully secure. Anyone can use and enjoy using this webapp :)</h4>
       <br />
       <h3 className="text-dark text-justify m-4"><b>Source Code:</b></h3>
-      <a className="link-dark" href="https://github.com/binitkc220/TextUtils-React" target="_blank" rel="noopener noreferrer">
+      <a className="link-dark" href="https://github.com/binitkc220/iNotebook-MERN-Stack" target="_blank" rel="noopener noreferrer">
         <h4 className="text-dark text-justify m-4">iNotebook-MERN-Stack</h4>
       </a>
     </div>
