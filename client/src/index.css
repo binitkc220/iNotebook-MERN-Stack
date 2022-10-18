@@ -1,0 +1,84 @@
+.text-justify{
+  text-align: justify;
+}
+
+i{
+  cursor: pointer !important;
+}
+
+.fixed,.toast-container{
+  position: fixed !important;
+  transition: opacity 0.5s linear !important;
+}
+
+
+.wrapper{
+  z-index: 101;
+  width: 420px;
+  padding: 30px 20px;
+  position: fixed;
+  top: 50px;
+  overflow: hidden;
+}
+#show-toast{
+  position: fixed;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  background-color: #101020;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#toast_custom{
+  box-sizing: border-box;
+  width: 380px;
+  height: 90px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(75, 50, 50, 0.05);
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 1.2fr 6fr 0.5fr;
+  transition: 1s;
+}
+.ccontainer-1,.ccontainer-2{
+  align-self: center;
+  font-size: 18px;
+}
+.ccontainer-1 i{
+  padding: 0;
+  margin: 0;
+  font-size: 40px;
+  /* color: #47d764; */
+}
+.ccontainer-2 p:first-child{
+  padding: 0;
+  margin: 0;
+  color: #101020;
+  font-weight: 600;
+  font-size: 18px;
+}
+.ccontainer-2 p:last-child{
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #656565;
+  font-weight: 400;
+}
+
+#slide {
+  right: -600px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+}
+@-webkit-keyframes slide {
+  100% { right: 0; }
+}
+
+@keyframes slide {
+  100% { right: 0; }
+}
