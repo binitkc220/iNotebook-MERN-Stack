@@ -1,11 +1,11 @@
-const connectToMongo = require('./config/db');
+const connectToMongo = require('./db');
 const express = require('express');
 const cors = require('cors');
 
 connectToMongo();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
