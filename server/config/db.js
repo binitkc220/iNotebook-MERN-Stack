@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const mongooseURI = "mongodb://localhost:27017/iNotebook";
+const config = require('config');
+const mongooseURI = config.get('mongoURI');
 
 const connectToMongo = ()=> {
     mongoose.connect(mongooseURI,()=>{

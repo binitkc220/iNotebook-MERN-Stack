@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import note_image from '../images/note.png'
 
 const Login = (props) => {
     let navigate = useNavigate();
@@ -40,19 +41,37 @@ const Login = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
     return (
-        <div className="container mt-3">
-            <h2 className="my-3">Login to continue to iNotebook</h2>
-            <form className="my-3" onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" name="email" onChange={onChange} value={credentials.email} />
+        <div className="container container-signup mt-4 p-4">
+            <div className="d-flex justify-content-center my-4">
+                <div className="fit-content">
+                    <div className="typed-out">Welcome to iNotebook !</div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" name="password" id="password" onChange={onChange} value={credentials.password} />
+            </div>
+            <div className="row">
+                <div className="col-md px-4">
+                    <h2 className="my-4">Login to continue to iNotebook</h2>
+                    <form className="my-3" onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email address</label>
+                            <div className="input-group">
+                                <div className="input-group-text border-0 border-bottom bg-transparent"><i className="fa-solid fa-envelope"></i></div>
+                                <input type="email" className="form-control border-0 border-bottom" id="email" name="email" onChange={onChange} value={credentials.email} required />
+                            </div>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <div className="input-group">
+                                <div className="input-group-text border-0 border-bottom bg-transparent"><i className="fa-solid fa-key"></i></div>
+                                <input type="password" className="form-control border-0 border-bottom" name="password" id="password" onChange={onChange} value={credentials.password} minLength={5} required />
+                            </div>
+                        </div>
+                        <button type="submit" className="btn btn-primary mt-4 mx-3">Log In</button>
+                    </form>
                 </div>
-                <button type="submit" className="btn btn-primary">Log In</button>
-            </form>
+                <div className="col-md d-flex justify-content-center align-items-center">
+                    <img src={note_image} className="img-fluid small-image" alt="Sign In" />
+                </div>
+            </div>
         </div>
     )
 }
