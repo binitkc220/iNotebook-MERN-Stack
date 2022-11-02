@@ -13,9 +13,12 @@ const Login = (props) => {
         // eslint-disable-next-line
     }, [])
 
+    const [loader, setLoader] = useState(false);
+
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoader(true);
         const host = "http://localhost:5000"
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
@@ -26,6 +29,7 @@ const Login = (props) => {
         });
         const json = await response.json();
         // console.log(json);
+        setLoader(false);
         if (json.success) {
             localStorage.setItem('token', json.authtoken);
             localStorage.setItem('name', json.name);
@@ -65,7 +69,11 @@ const Login = (props) => {
                                 <input type="password" className="form-control border-0 border-bottom" name="password" id="password" onChange={onChange} value={credentials.password} minLength={5} required />
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary mt-4 mx-3">Log In</button>
+                        <div className='d-flex align-items-center'>
+                            <button type="submit" className="btn btn-primary mx-3">Log In</button>
+                            {loader && <div class="spinner-border text-success" role="status">
+                            </div>}
+                        </div>
                     </form>
                 </div>
                 <div className="col-md d-flex justify-content-center align-items-center">

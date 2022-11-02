@@ -13,12 +13,16 @@ const Signup = (props) => {
         // eslint-disable-next-line
     }, [])
 
+    const [loader, setLoader] = useState(false);
+
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoader(true);
         const host = "http://localhost:5000";
         const { name, email, password, cpassword } = credentials;
         if (password !== cpassword) {
+            setLoader(false);
             props.showAlert("Error", "Password do not match !", "fa-circle-xmark", "red");
             return;
         }
@@ -30,7 +34,8 @@ const Signup = (props) => {
             body: JSON.stringify({ name, email, password })
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
+        setLoader(false);
         if (json.success) {
             localStorage.setItem('token', json.authtoken);
             localStorage.setItem('name', name);
@@ -85,7 +90,11 @@ const Signup = (props) => {
                                 <input type="password" className="form-control border-0 border-bottom" name="cpassword" id="cpassword" onChange={onChange} value={credentials.cpassword} minLength={5} required />
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary mt-4 mx-3">Sign Up</button>
+                        <div className='d-flex align-items-center'>
+                            <button type="submit" className="btn btn-primary mx-3">Sign Up</button>
+                            {loader && <div class="spinner-border text-success" role="status">
+                            </div>}
+                        </div>
                     </form>
                 </div>
                 <div className="col-md p-0">
